@@ -3,5 +3,3 @@ tensorflow
 numpy
 Flask
 tflearn
-ffmpeg
-boto3
