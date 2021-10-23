@@ -1,0 +1,8 @@
+nltk
+tensorflow
+numpy
+Flask
+tflearn
+pickle
+ffmpeg
+boto3
