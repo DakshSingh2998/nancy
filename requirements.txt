@@ -1,5 +1,5 @@
 nltk
-tensorflow
+tensorflow==2.1.0
 numpy
 Flask
 tflearn
