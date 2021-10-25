@@ -195,7 +195,7 @@ response('Bye')
 """
 #Adding some context to the conversation i.e. Contexualization for altering question and intents etc.
 # create a data structure to hold user context
-"""
+
 context = {}
 
 ERROR_THRESHOLD = 0.25
@@ -222,7 +222,7 @@ def response(sentence, userID='123', show_details=False):
                 if i['tag'] == results[0][0]:
                     # set context for this intent if necessary
                     if 'context_set' in i:
-                        if show_details: print ('context:', i['context_set'])
+                        if show_details: return str(i['context_set'])
                         context[userID] = i['context_set']
 
                     # check if this intent is contextual and applies to this user's conversation
@@ -233,7 +233,7 @@ def response(sentence, userID='123', show_details=False):
                         return random.choice(i['responses'])
 
             results.pop(0)
-"""
+
 """
 response('Can you please let me know the delivery options?')
 
@@ -246,6 +246,8 @@ response("Hi there!", show_details=True)
 response('What is menu for today?')
 
 """
+print(response("hi"))
+print(response("what do you have for today"))
 #print(response('hi'))
 ##########################
 ##########################
@@ -316,5 +318,7 @@ def api_id():
 import os
 port = int(os.environ.get('PORT', 5000))
 app.run(host='0.0.0.0', port=port)
+from keep_alive import keep_alive
+keep_alive()
 
 
