@@ -85,7 +85,9 @@ for doc in documents:
     training.append([bag, output_row])
 
 # shuffling features and turning it into np.array
+
 random.shuffle(training)
+
 training = np.array(training)
 
 # creating training lists
@@ -99,6 +101,8 @@ tf.compat.v1.reset_default_graph()
 net = tflearn.input_data(shape=[None, len(train_x[0])])
 net = tflearn.fully_connected(net, 10)
 net = tflearn.fully_connected(net, 10)
+net = tflearn.fully_connected(net, 10)
+net = tflearn.fully_connected(net, 10)
 net = tflearn.fully_connected(net, len(train_y[0]), activation='softmax')
 net = tflearn.regression(net)
 
@@ -106,7 +110,7 @@ net = tflearn.regression(net)
 model = tflearn.DNN(net, tensorboard_dir='tflearn_logs')
 
 # Start training
-#model.fit(train_x, train_y, n_epoch=5000, batch_size=8, show_metric=True)
+#model.fit(train_x, train_y, n_epoch=1000, batch_size=4, show_metric=True)
 #model.save('model.tflearn')
 
 import pickle
@@ -246,7 +250,7 @@ response("Hi there!", show_details=True)
 response('What is menu for today?')
 
 """
-print(response("hi"))
+print(response("What hours are you open"))
 print(response("what do you have for today"))
 #print(response('hi'))
 ##########################
