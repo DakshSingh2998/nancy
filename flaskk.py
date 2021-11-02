@@ -99,6 +99,9 @@ tf.compat.v1.reset_default_graph()
 net = tflearn.input_data(shape=[None, len(train_x[0])])
 net = tflearn.fully_connected(net, 10)
 net = tflearn.fully_connected(net, 10)
+net = tflearn.fully_connected(net, 10)
+net = tflearn.fully_connected(net, 10)
+net = tflearn.fully_connected(net, 10)
 net = tflearn.fully_connected(net, len(train_y[0]), activation='softmax')
 net = tflearn.regression(net)
 
@@ -106,7 +109,7 @@ net = tflearn.regression(net)
 model = tflearn.DNN(net, tensorboard_dir='tflearn_logs')
 
 # Start training
-model.fit(train_x, train_y, n_epoch=5000, batch_size=8, show_metric=True)
+model.fit(train_x, train_y, n_epoch=1000, batch_size=8, show_metric=True)
 model.save('model.tflearn')
 
 import pickle
@@ -195,7 +198,7 @@ response('Bye')
 """
 #Adding some context to the conversation i.e. Contexualization for altering question and intents etc.
 # create a data structure to hold user context
-"""
+
 context = {}
 
 ERROR_THRESHOLD = 0.25
@@ -222,7 +225,7 @@ def response(sentence, userID='123', show_details=False):
                 if i['tag'] == results[0][0]:
                     # set context for this intent if necessary
                     if 'context_set' in i:
-                        if show_details: print ('context:', i['context_set'])
+                        if show_details: return str(i['context_set'])
                         context[userID] = i['context_set']
 
                     # check if this intent is contextual and applies to this user's conversation
@@ -233,7 +236,7 @@ def response(sentence, userID='123', show_details=False):
                         return random.choice(i['responses'])
 
             results.pop(0)
-"""
+
 """
 response('Can you please let me know the delivery options?')
 
@@ -246,6 +249,7 @@ response("Hi there!", show_details=True)
 response('What is menu for today?')
 
 """
+print(response("hi"))
 #print(response('hi'))
 ##########################
 ##########################
